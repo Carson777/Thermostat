@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +17,56 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ROX-Km-qQZ">
+                                <rect key="frame" x="207" y="96" width="186" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="186" id="1tX-f3-0BL"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="Fahrenheit"/>
+                                    <segment title="Celcius"/>
+                                </segments>
+                                <connections>
+                                    <action selector="segmentedControlIndexChanged" destination="BYZ-38-t0r" eventType="valueChanged" id="w8t-9l-1x5"/>
+                                </connections>
+                            </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RQX-Ud-c1W">
+                                <rect key="frame" x="279" y="266" width="42" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="42" id="f85-ZZ-fIj"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="-100" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="b4b-GX-dQh">
+                                <rect key="frame" x="18" y="459" width="564" height="31"/>
+                                <connections>
+                                    <action selector="Sliderbarmoved" destination="BYZ-38-t0r" eventType="valueChanged" id="RzG-qc-8Gt"/>
+                                </connections>
+                            </slider>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="b4b-GX-dQh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="5AX-Un-XKh"/>
+                            <constraint firstItem="RQX-Ud-c1W" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="266" id="N1h-a0-r1P"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="b4b-GX-dQh" secondAttribute="bottom" constant="111" id="Rc7-rL-xSn"/>
+                            <constraint firstItem="b4b-GX-dQh" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="Rwl-E6-Bb8"/>
+                            <constraint firstItem="ROX-Km-qQZ" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="76" id="Ryx-Y2-Q6H"/>
+                            <constraint firstItem="ROX-Km-qQZ" firstAttribute="centerX" secondItem="RQX-Ud-c1W" secondAttribute="centerX" id="U72-F2-h2D"/>
+                            <constraint firstItem="RQX-Ud-c1W" firstAttribute="centerX" secondItem="b4b-GX-dQh" secondAttribute="centerX" id="tN7-n9-0xA"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="Label" destination="RQX-Ud-c1W" id="uIK-Cf-NVN"/>
+                        <outlet property="SegmentedControl" destination="ROX-Km-qQZ" id="Eb3-ay-T5p"/>
+                        <outlet property="slider" destination="b4b-GX-dQh" id="Qir-TP-9eU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="253" y="293"/>
         </scene>
     </scenes>
 </document>
